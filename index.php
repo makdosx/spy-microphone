@@ -48,17 +48,8 @@
 
 body
 {
-/*  #DB0630 */
-
-/* background: grey ; */ /* Old browsers */
-
-
-background: url(assets/img/bg1.jpg);
-background-repeat: no-repeat;
-background-size: 100%;
-
-}
-      
+background: #952929 ; 
+}   
   
 .container
 {
