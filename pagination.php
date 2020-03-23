@@ -38,6 +38,11 @@ session_start();
 <html lang="en">
  <head> 
 
+<title> Spy microphone Controller </title>
+
+    <link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
+
+
   <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
@@ -67,13 +72,18 @@ session_start();
    }
    
   </style>
+
  </head>
+
  <body>
   
+
+    <div align="center">
+     <img src="assets/img/bg1.png" height="80" width="100%">
+    </div>
+
  
   <div id="load-data"> </div>
-
-  <span id="loading"  style="position:relative;left:680px;"> <img src="loading.gif"  /> </span>
   
   <div class="wrapper">        
    <ul id="pagination-demo" ></ul> 

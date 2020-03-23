@@ -26,6 +26,11 @@ session_start();
       header("Location: index.php");
       }
 
+else
+{
+unset($_SESSION["hard_disk_id"]);
+}
+
 ?>
 
 
@@ -34,7 +39,12 @@ session_start();
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title> Spy microphone Controller </title>
+
+     <title> Spy microphone Controller </title>
+
+     <link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
+
+
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->

@@ -35,7 +35,12 @@ session_start();
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title> Spy microphone Controller </title>
+
+<link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
+
+
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -46,7 +51,10 @@ session_start();
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
@@ -137,6 +145,8 @@ session_start();
           
           <?php 
 
+            unset($_SESSION["hard_disk_id"]);
+
            require_once('__ROOT__/connect.php');
 
 
@@ -224,7 +234,7 @@ session_start();
                 <div class='col-md-3 col-sm-6 col-xs-6'>           
 			<div class='panel panel-back noti-box'>
                 <span class='icon-box bg-color-red set-icon'>
-                    <i class='fa fa-laptop'></i>
+                    <i class='fa fa-laptop fa-2x'></i>
                 </span>
                 <div class='text-box'>
                     <p class='main-text'> Devices  </p>
@@ -235,7 +245,7 @@ session_start();
                     <div class='col-md-3 col-sm-6 col-xs-6'>           
 			<div class='panel panel-back noti-box'>
                 <span class='icon-box bg-color-red set-icon'>
-                    <i class='fa fa-microphone-slash'></i>
+                    <i class='fa fa-microphone-slash fa-2x'></i>
                 </span>
                 <div class='text-box'>
                     <p class='main-text'> Records </p>
@@ -246,7 +256,7 @@ session_start();
                     <div class='col-md-3 col-sm-6 col-xs-6'>           
 			<div class='panel panel-back noti-box'>
                 <span class='icon-box bg-color-blue set-icon'>
-                    <i class='fa fa-save'></i>
+                    <i class='fa fa-save fa-2x'></i>
                 </span>
                 <div class='text-box'>
                     <p class='main-text'> H: Disks </p>

@@ -30,6 +30,10 @@
 
 <meta charset="utf-8">
 
+    <title> Spy microphone Controller </title>
+
+    <link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -44,8 +48,14 @@
 
 body
 {
+/*  #DB0630 */
 
-background: #DB0630; /* Old browsers */
+/* background: grey ; */ /* Old browsers */
+
+
+background: url(assets/img/bg1.jpg);
+background-repeat: no-repeat;
+background-size: 100%;
 
 }
       
@@ -91,7 +101,9 @@ height: 45px !important;
  <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12">
 
+       
       <img src="assets/img/find_user.png" class="img-responsive" height="250px;" width="280px;">
+
       <div class="row">
         <h3 class="text-center" style="padding-right: 80px; color:white;"> Spy Microphone </h3>
       </div>
@@ -126,18 +138,20 @@ height: 45px !important;
 <?php
  
 
-$allow= ip2long("127.0.0.1"); // for mozilla browser
-$allow2 = ip2long("::1"); // for chrome browser
-$ip = ip2long($_SERVER['REMOTE_ADDR']); // ip tou client
-$location = '/error'; // edw stelnw ton spam xrhsth
-if ($ip!=$allow & $ip !=$allow2)
- {
+//$allow= ip2long("127.0.0.1"); // for mozilla browser
+//$allow2 = ip2long("::1"); // for chrome browser
+//$ip = ip2long($_SERVER['REMOTE_ADDR']); // ip tou client
+//$location = '/error'; // edw stelnw ton spam xrhsth
+//if ($ip!=$allow & $ip !=$allow2)
+ //{
 //stelnw se allo url
-header ('HTTP/1.1 301 Moved Permanently');
-header ('Location: '.$location);
-}
-else
-  {
+//header ('HTTP/1.1 301 Moved Permanently');
+//header ('Location: '.$location);
+//}
+
+
+//else
+ // {
 
   if(isset($_POST['submit']))
   {
@@ -163,7 +177,7 @@ else
 
 } // kleisimo ths isset
  
-} //kleisimo ths megalhs else gia elenxo ths ip
+//} //kleisimo ths megalhs else gia elenxo ths ip
 
 
 ?>

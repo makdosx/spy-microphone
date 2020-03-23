@@ -91,9 +91,11 @@ function delete_confirm()
 
 
 <style>
+
+
 .panel
         {
-          margin: 5%;
+          margin: 3%;
           background: transparent;
         }
 
@@ -150,12 +152,20 @@ text-align: left;
 
 
 <body>
-
-
-
+ 
+ 
 
 <?php
 
+ session_start();
+
+ if (!isset($_SESSION['login']))
+    {
+      header("Location: index.php");
+      }
+
+ else
+  {
 
  include("__SRC__/config.php");
  Class paginationClass{
@@ -189,9 +199,12 @@ text-align: left;
    
    try {
     $dbConnection = $this->DBConnect();
+
+
+    $HARD_DISK_ID = $_SESSION['hard_disk_id'];
     
     $stmt = $dbConnection->prepare("SELECT * FROM records 
-                                    WHERE hard_disk_id_serial_number = 'E: ID_SERIAL_SHORT=FF445F0AA'   
+                                    WHERE hard_disk_id_serial_number = '$HARD_DISK_ID'   
                                     LIMIT :SetRecordLimit OFFSET :SetOffSetLimit");
     $stmt->bindParam(':SetRecordLimit', $this->SetRecordLimit , PDO::PARAM_INT);
     $stmt->bindParam(':SetOffSetLimit', $SetOffSetLimit , PDO::PARAM_INT);
@@ -284,7 +297,6 @@ text-align: left;
       
      }
     }    
-
     
     
       echo" 
@@ -293,14 +305,14 @@ text-align: left;
       </div>
    <div class='panel-footer'>
 
-              <table>
+              <table> 
              <tr>
  
             <td>
           <form action='/backup_records.php' method='POST' onsubmit='return backup_confirm();'>
 
-            <font size='4'>
-                <i class='fa fa-hdd-o'> </i> Backup Records --> 
+            <font size='4' color='white'>
+                <i class='fa fa-hdd-o'> </i> Backup Records --- 
              </font>
 
       <input type='submit' name='backup_records_hard_disk' value='$hard_disk_id_serial_number' 
@@ -318,8 +330,8 @@ text-align: left;
              <td>
           <form action='/delete_records.php' method='POST' onsubmit='return delete_confirm();'>
 
-            <font size='4'>
-                <i class='fa fa-trash'> </i> Delete Records --> 
+            <font size='4' color='white'>
+                <i class='fa fa-trash'> </i> Delete Records --- 
              </font>
 
       <input type='submit' name='delete_hard_disk_id_serial_number' value='$hard_disk_id_serial_number' 
@@ -369,6 +381,8 @@ text-align: left;
   
  } 
  
+} // end of else session isset
+
 ?>
 
  

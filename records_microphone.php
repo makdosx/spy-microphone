@@ -48,6 +48,7 @@ session_start();
      <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
+  <link rel="icon" type="image/jpg" href="/assets/img/find_user.png" />
 
 
 <style>
@@ -189,6 +190,8 @@ session_start();
                
          <?php
 
+            unset($_SESSION["hard_disk_id"]);
+
            require_once('__ROOT__/connect.php');
 
             if (class_exists('DATABASE_CONNECT'))
@@ -268,11 +271,16 @@ session_start();
 
          $country_name = file_get_contents("https://ipapi.co/$public_ip_country/country_name/");
 
-         $country_code = file_get_contents("https://ipapi.co/$public_ip_country/country/");
+          echo $country_name;
+
+         $country_code = file_get_contents("https://ipapi.co/$public_ip_country/country_code/");
 
          $country_code = strtolower($country_code);
   
-         $country_flag = "<img src='https://ipdata.co/flags/$country_code.png' alt='Smiley face'>";
+          // echo $country_code; 
+  
+         $country_flag = "<img src='https://ipapi.co/static/images/flags/24/$country_code.png'>";
+
          $blank = "&nbsp;";
          $country_name = $country_name;
 
@@ -294,7 +302,7 @@ session_start();
 
       echo " <td id='city' class='text-center'> $country_flag $blank $country_name </td>
               <td id='city' class='text-center'> 
-    <a class='btn btn-xs btn-info view' href='https://www.google.com/maps/place/$lat,$long' target='_blank'>
+    <a class='btn btn-md btn-info view' href='https://www.google.com/maps/place/$lat,$long' target='_blank'>
                 <i class='fa fa-external-link' aria-hidden='true'> Open Map </i>
               </a>
               </td>
@@ -304,7 +312,7 @@ session_start();
               <td id='' class='text-center'> $operating_system </td>
               <td id='' class='text-center'> $hard_disk_id_serial_number </td>  
               <td id='city' class='text-center'>  
-                <a class='btn btn-xs btn-success view'
+                <a class='btn btn-md btn-success view'
                   href='view.php?serial_number={$serial_number}' target='_blank'>
                 <i class='fa fa-eye' aria-hidden='true'> View Activity </i>
               </a>

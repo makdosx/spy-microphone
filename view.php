@@ -96,7 +96,8 @@ if(isset($_GET['serial_number']))
     $sql2 = "insert into str_lines (str_line) values('$hard_disk_id_serial_number')";
     $result2 = $conn->query($sql2);
 
-
+  
+      $_SESSION['hard_disk_id'] = $hard_disk_id_serial_number;
 
       echo ("<script>location.href='pagination.php'</script>");
 
