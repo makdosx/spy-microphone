@@ -14,6 +14,8 @@
 
 
   iii) The spy-microphone ready to use 
+  
+   Default password for login is: spymic
 
 ![1](png/1.png) <br> <br> <br> 
 
