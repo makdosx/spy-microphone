@@ -53,7 +53,48 @@ unset($_SESSION["hard_disk_id"]);
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+
+
+<style>
+
+input
+{
+text-align:center;
+font-size: 20px;
+}
+
+
+hr
+{
+  border: 1px solid red;
+
+}
+
+
+#inp_pass
+{
+width: 350px;
+}
+
+
+#btn_pass
+{
+width: 350px;
+}
+
+</style>
+
+
 </head>
+
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
@@ -64,7 +105,7 @@ unset($_SESSION["hard_disk_id"]);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php"> Spy Microphone </a>  
+                <a class="navbar-brand" href="dashboard.php"> Spymic </a>  
             </div>
   
       <div style="color: white; padding: 15px 50px 5px 50px;float: right; font-size: 16px;"> 
@@ -142,15 +183,220 @@ unset($_SESSION["hard_disk_id"]);
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2> Settings </h2>   
                        
                     </div>
                 </div>
                  <!-- /. ROW  -->
-                 <hr />
+              
+
+              <div class='container-fluid'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-12 col-md-8'>
+            <h2 class='text-center pull-left' style='padding-left: 30px;'>  
+            <i class='fa fa-cogs'> </i> Settings </h2> </h2>
+          </div>
+          <div class='col-xs-9 col-sm-9 col-md-9'>
+            <div class='col-xs-12 col-sm-12 col-md-12'>
+              <div class='col-xs-12 col-md-4'>             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <div class='panel-body table-responsive'>
+        <table class='table table-hover'>
+          <thead>
+            <tr>
+              <th class='text-center'> Task <i class='fa fa-server'> </i> </th>
+              <th class='text-center'> Operation <i class='fa fa-plug'> </i> </th>
+              <th class='text-center'> Action <i class='fa fa-power-off'> </i> </th>
+            </tr>
+          </thead>
+
+
+         <tbody>
+
+          <tr>
+             
+           <td class='text-center'> <i class='fa fa-tablet'> </i> Router </td>
+           <td class='text-center'> <i class='fa fa-ethernet'> </i> Port forward </td>
+           <td class='text-center'>  
+
+               <?php 
+
+                  $ip = $_SERVER['REMOTE_ADDR'];
+                  $gateway = "http://" .$gateway."".substr($ip, 0, strrpos($ip, ".")).".1"; 
+
+                 ?>
+
+             <a class="btn btn-md btn-success view"
+                  href="<?php echo $gateway; ?>" target="_blank'">
+                <i class='fas fa-toggle-on' aria-hidden='true'> Manage </i>
+               </a>
+
+         </td>
+
+         </tr>
+
+
+
+         <tr>
+             
+           <td class='text-center'> <i class='fa fa-columns'> </i> UI Panel </td>
+           <td class='text-center'> <i class='fa fa-globe'> </i> Remote Desktop </td>
+           <td class='text-center'>  
+
+               <?php 
+ 
+                 //$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+                 //$protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+
+                 $public_ip = "http://" .file_get_contents("https://ipinfo.io/ip");
+
+               ?>
+
+             <a class="btn btn-md btn-success view"
+                  href="<?php echo $public_ip; ?>" target="_blank'">
+                <i class='fas fa-toggle-on' aria-hidden='true'> Manage </i>
+               </a>
+
+
+         </td>
+
+      </tr>
+
+
+
+       <tr>
+             
+           <td class='text-center'> <i class='fa fa-database'> </i> Dtabase </td>
+           <td class='text-center'> <i class='fa fa-globe'> </i> Remote Database </td>
+           <td class='text-center'>  
+
+               <?php 
+ 
+                 //$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+                 //$protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+
+                 $public_ip = "http://" .file_get_contents("https://ipinfo.io/ip") ."/phpmyadmin/";
+
+               ?>
+
+             <a class="btn btn-md btn-success view"
+                  href="<?php echo $public_ip; ?>" target="_blank'">
+                <i class='fas fa-toggle-on' aria-hidden='true'> Manage </i>
+               </a>
+
+
+         </td>
+
+      </tr>
+
+         </tbody>
+        </table>
+      </div>
 
 
     </div>
+
+      <br><br>
+
+      <div align="center">
+
+           <h2> Change Password <i class='fas fa-key'></i> </h2>
+
+                  <hr>
+
+         <form action="" method="post">
+
+
+            <input type="password" name="password" class="form-control input-lg" 
+                   id="inp_pass" placeholder="You pass" pattern=".{6,}"   
+                    required title="6 characters minimum">
+
+                    
+                   <br>
+
+            <button class="btn btn-lg btn-danger" name="submit_pass" id="btn_pass">
+              Change password <i class='fas fa-lock'></i> 
+           </button>
+     
+         </form>
+
+<?php
+
+
+ if(isset($_POST['submit_pass']))
+  {
+
+
+  require('__ROOT__/connect.php');
+  require('__DEV__/function.php');
+
+ $obj = new DATABASE_CONNECT;
+ 
+  $host=$obj->connect[0];
+  $user=$obj->connect[1];
+  $pass=$obj->connect[2];
+  $db=$obj->connect[3];
+  
+  $conn = new mysqli($host,$user,$pass,$db);
+  
+  if($conn->connect_error)
+     {
+     die ("Cannot connect to server " .$conn->connect_error);
+       }
+
+else
+{
+
+  $user_id = $_SESSION['login'];
+
+  $password = md5(input($_POST['password']));
+  $password = $conn->real_escape_string($password); 
+
+  $sql ="update administrators set password = '$password'
+         where user_id = '$user_id' and verify ='yes'";
+
+  $result=$conn->query($sql);
+
+  if ($result == true) 
+     {  
+      echo "<div class='col-lg-12' align='center'>
+            <font size='5'> <i class='fa fa-check'></i> Password changed successfully </font> 
+             <meta http-equiv='refresh' content='2; url=logout.php' />
+         </div>";
+     }
+
+
+     else
+      {
+      echo " <div class='col-lg-12' align='center'>
+            <font size='5'> <i class='fa fa-check'></i> Error. Please try again </font> 
+            <meta http-equiv='refresh' content='2; url=settings.php' />
+         </div>";
+       }
+
+
+ } // end else connect
+
+ 
+ $conn->close();
+
+
+} // end of isset submit
+ 
+
+?>
+
+        </div>
+
+     
+
+
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -168,4 +414,4 @@ unset($_SESSION["hard_disk_id"]);
     
    
 </body>
-</html>
+</html> 

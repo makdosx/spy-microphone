@@ -60,7 +60,7 @@ session_start();
                     <span class="fa fa-bar"></span>
                     <span class="fa fa-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php"> Spy Microphone </a>  
+                <a class="navbar-brand" href="dashboard.php"> Spymic </a>  
             </div>
 
            <div style="color: white; padding: 15px 50px 5px 50px;float: right; font-size: 16px;"> 
@@ -143,7 +143,7 @@ session_start();
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2> UI Elements </h2>   
+
                        
                     </div>
                 </div>

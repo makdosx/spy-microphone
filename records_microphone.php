@@ -104,7 +104,7 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.php"> Spy Microphone </a> 
+                <a class="navbar-brand" href="dashboard.php"> Spymic </a> 
             </div>
 
       <div style="color: white; padding: 15px 50px 5px 50px;float: right; font-size: 16px;"> 

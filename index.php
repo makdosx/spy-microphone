@@ -49,7 +49,8 @@
 body
 {
 background: #952929 ; 
-}   
+}
+      
   
 .container
 {
@@ -104,8 +105,7 @@ height: 45px !important;
            <form action="" method="post">
           <div class="input-group col-xs-9 col-sm-9 col-md-9">
 
-         <input type="text" name="password" class="form-control"
-                value="<?php echo get_current_user(); ?>"  readonly>
+         <input type="password" name="password" class="form-control" required>
 
           <div class="input-group-btn">
             <button class="btn btn-md btn-danger btn-block" name="submit">
@@ -144,21 +144,54 @@ height: 45px !important;
 //else
  // {
 
-  if(isset($_POST['submit']))
+
+ if(isset($_POST['submit']))
   {
 
+  require('__ROOT__/connect.php');
+  require('__DEV__/function.php');
 
-  $current_user = get_current_user();
+ $obj = new DATABASE_CONNECT;
+ 
+  $host=$obj->connect[0];
+  $user=$obj->connect[1];
+  $pass=$obj->connect[2];
+  $db=$obj->connect[3];
+  
+  $conn = new mysqli($host,$user,$pass,$db);
+  
+  if($conn->connect_error)
+     {
+     die ("Cannot connect to server " .$conn->connect_error);
+       }
 
-  $pass = $current_user;
-  $password = $_POST['password'];
+else
+{
 
-   if($password == $pass)
-      {
-         $_SESSION['login'] = $current_user;
-        // shell_exec('shell/./unlock_records.sh');
-        header('Location: dashboard.php');
-        }
+  $password = md5(input($_POST['password']));
+  $password = $conn->real_escape_string($password); 
+
+  $sql ="select user_id,password,verify from administrators 
+         where binary password='$password' and verify='yes'";
+
+  $result=$conn->query($sql);
+  $rows = $result->num_rows;
+
+  if ($rows == 1) 
+     {  
+ 
+      while ($rows2 = $result->fetch_assoc())
+         {
+         $user_id = $rows2['user_id'];
+          }
+
+      $_SESSION['login'] = $user_id;
+
+      header('Location: dashboard.php');
+    
+     }
+
+
      else
       {
        echo '<script type="text/javascript">alert("Sign in control panel error");
@@ -166,7 +199,13 @@ height: 45px !important;
        }
 
 
-} // kleisimo ths isset
+ } // end else connect
+
+ 
+ $conn->close();
+
+
+} // end of isset submit
  
 //} //kleisimo ths megalhs else gia elenxo ths ip
 
